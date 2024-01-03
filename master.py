@@ -85,7 +85,7 @@ def draw_winner_window(winner):
     pygame.draw.rect(display_surface, white, (80, 105, 140, 90))
     display_surface.blit(winner_text, (width/2 - winner_text.get_width()/2, height/2 - winner_text.get_height()/2))
     pygame.display.update()
-    time.sleep(2)
+    time.sleep(3)
 
 # Main game loop
 def gameLoop():
