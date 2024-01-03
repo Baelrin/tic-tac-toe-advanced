@@ -61,12 +61,14 @@ def check_for_winner(board):
 
 # Drawing the winner's window
 def draw_winner_window(winner):
-    winner_text = winner_font.render("{} wins!".format(winner), True, black)
-    pygame.draw.rect(display_surface, black, (75, 100, 150, 100))
-    pygame.draw.rect(display_surface, white, (80, 105, 140, 90))
-    display_surface.blit(winner_text, (WIDTH/2 - winner_text.get_width()/2, HEIGHT/2 - winner_text.get_height()/2))
-    pygame.display.update()
-    time.sleep(3)
+   winner_text = winner_font.render("{} wins!".format(winner), True, black)
+   winner_surface = pygame.Surface((150, 100))
+   winner_surface.fill(white)
+   winner_surface.blit(winner_text, (75 - winner_text.get_width()/2, 50 - winner_text.get_height()/2))
+   pygame.draw.rect(winner_surface, black, (0, 0, 150, 100), 2)
+   display_surface.blit(winner_surface, (75, 100))
+   pygame.display.update(pygame.Rect(75, 100, 150, 100))
+   time.sleep(3)
 
 # Main game loop
 def gameLoop():
